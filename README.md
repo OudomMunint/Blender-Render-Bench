@@ -1,54 +1,23 @@
 # Blender-Render-Bench
-Thank you for downloading the Blender Benchmark Launcher CLI! Before proceeding
-it is important to know that there is both an interactive and a non-interactive
-interface. The interactive CLI is preferred if you are running benchmarks
-manually, the non-interactive CLI is to be used if you are running benchmarks
-in an automated fashion.
 
-# Interactive CLI
-
-To use the interactive interface simply issue:
-```
->>> ./benchmark-launcher-cli
-```
-
-# Non-interactive CLI
-
-A non-interactive flow looks roughly like the following:
-```
-# If you want to submit your results to https://opendata.blender.org you need to
-# run the following step once, manually.
->>> ./benchmark-launcher-cli authenticate
+# Getting Started
+`>>> ./benchmark-launcher-cli authenticate`
 
 # Next you need to determine which Blender version and which scenes you want to
 # benchmark:
->>> ./benchmark-launcher-cli blender list
-2.81	173238584  # The first column is the label and the second column the
-2.81a	168730314  # number of bytes to be downloaded.
-
-# Let's say we pick Blender version 2.81a. To list the scenes compatible with
-# this version of Blender we issue:
->>> ./benchmark-launcher-cli scenes --blender-version 2.81a list
-bmw27	3637007
-classroom	91506626
-barbershop_interior	131506030
-fishy_cat	33079579
-koro	61246985
-pavillon_barcelona	16435632
-victor	243604112
+`>>> ./benchmark-launcher-cli blender list`
 
 # Next we need to download the Blender versions and the required scenes:
->>> ./benchmark-launcher-cli blender download 2.81a
->>> ./benchmark-launcher-cli scenes download --blender-version 2.81a bmw27
+`>>> ./benchmark-launcher-cli blender download 2.81a`
+`>>> ./benchmark-launcher-cli scenes download --blender-version 2.81a bmw27`
 
 # We also need to decide on which device to run the benchmark:
->>> ./benchmark-launcher-cli devices --blender-version 2.81a
-AMD Ryzen 7 1800X Eight-Core Processor	CPU  # The first column is the device
-                                             # name and the second column is the
-                                             # device type.
+`>>> ./benchmark-launcher-cli devices --blender-version 2.81a`
+### The first column is the device name.
+### The second column is the device type.
 
-# Now we can finally run our benchmark:
->>> ./benchmark-launcher-cli benchmark --blender-version 2.81a --device-type CPU --json --submit bmw27
+# Run our benchmark:
+`>>> ./benchmark-launcher-cli benchmark --blender-version 2.81a --device-type CPU --json --submit bmw27
 [
   {
     "timestamp": "2020-01-15T14:07:44.254378+00:00",
@@ -106,8 +75,4 @@ AMD Ryzen 7 1800X Eight-Core Processor	CPU  # The first column is the device
       "render_time_no_sync": 228.057
     }
   }
-]
-Submitting results
-Submission successful! View your results at:
-https://opendata.blender.org/benchmarks/eb34412f-90e0-44ec-b8dc-7ad87f84d19f/
-```
+]`
