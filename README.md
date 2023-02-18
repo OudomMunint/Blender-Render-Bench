@@ -16,7 +16,7 @@
 ### The first column is the device name.
 ### The second column is the device type.
 
-# Run our benchmark:
+# Run the benchmark:
 `>>> ./benchmark-launcher-cli benchmark --blender-version 2.81a --device-type CPU --json --submit bmw27
 [
   {
